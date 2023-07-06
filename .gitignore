@@ -36,6 +36,7 @@ build/
 *.iml
 *.ipr
 *.iws
+*.zip
 *.jar
 *.sw?
 *~
