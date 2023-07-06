@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,7 +40,7 @@ public class StoreCourierDistanceRepositoryImpl implements StoreCourierDistanceR
                 CourierStoreTimeStampRelation newRelation = new CourierStoreTimeStampRelationBuilder()
                         .withCourierId(courierDataEntry.getId())
                         .withDistance(DistanceUtil.getDistanceBetweenCourierAndStore(store, courierDataEntry)).withStoreName(store.getName())
-                        .withFirstSeenTimestamp(LocalDateTime.now())
+                        .withFirstSeenTimestamp(courierDataEntry.getTime())
                         .withLastEnteredCourierLocation(new LocationBuilder().withLat(store.getLat()).withLng(store.getLng()).build())
                         .build();
                 storeCourierMap.put(key,newRelation );
