@@ -1,6 +1,7 @@
 package com.migros.courrierLocation.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.migros.courrierLocation.model.CourierDataEntry;
 import com.migros.courrierLocation.model.events.CourierEntryEvent;
 import com.migros.courrierLocation.model.events.ErrorEvent;
@@ -33,6 +34,8 @@ public class CourierStreamHandler extends TextWebSocketHandler {
     @Override
     public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         final ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+
         if(StringUtils.isNotBlank(message.getPayload())) {
             final String payload = message.getPayload();
             final CourierDataEntry courierDataEntry = objectMapper.readValue(payload, CourierDataEntry.class);
