@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "09c185f4-34e2-4e60-89e3-fbbc4341e471",
+		"name": "Migros Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23997842"
+	},
+	"item": [
+		{
+			"name": "getCourrierDistrance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/courier/distance/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courier",
+						"distance",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
